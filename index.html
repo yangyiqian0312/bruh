@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>选项投票可视化杯子</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>投票可视化：哪个选项选得最多？</h1>
+    <p class="subtitle">点击按钮给对应杯子“加水”，支持新增选项、撤销误操作。</p>
+
+    <section class="controls">
+      <form id="add-option-form">
+        <label for="option-name">新增选项：</label>
+        <input id="option-name" type="text" placeholder="例如：白色" maxlength="20" required />
+        <button type="submit">添加选项</button>
+      </form>
+      <button id="undo-last" class="secondary" disabled>撤销上一步</button>
+      <button id="reset-all" class="danger" disabled>全部清空</button>
+    </section>
+
+    <section>
+      <h2>投票杯子</h2>
+      <div id="cups" class="cups"></div>
+    </section>
+
+    <section>
+      <h2>当前排名</h2>
+      <ol id="ranking"></ol>
+    </section>
+  </main>
+
+  <template id="cup-template">
+    <article class="cup-card">
+      <h3 class="option-title"></h3>
+      <div class="cup">
+        <div class="fill"></div>
+        <span class="count">0</span>
+      </div>
+      <div class="buttons">
+        <button class="vote-btn">+1 投票</button>
+        <button class="undo-btn secondary" disabled>撤销此项</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
